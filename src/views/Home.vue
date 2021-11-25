@@ -4,17 +4,41 @@
       <span class="name">CANDRA KURNIAWAN</span>
       <span class="position">FULLSTACK WEB DEVELOPER</span>
     </div>
-    <div class="imgProfile"></div>
+    <div class="socialBanner">
+      <img class="socialIcon" :src="linkedin" alt="" />
+      <img class="socialIcon" :src="github" alt="" />
+      <img class="socialIcon" :src="discord" alt="" />
+      <img class="socialIcon" :src="whatsapp" alt="" />
+      <img class="socialIcon" :src="email" alt="" />
+    </div>
+    <div class="imgProfileWrapper">
+      <img class="imgProfile" :src="avatar" alt="" />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import linkedin from '../assets/logos/linkedin.svg';
+import github from '../assets/logos/github.svg';
+import discord from '../assets/logos/discord.svg';
+import whatsapp from '../assets/logos/whatsapp.svg';
+import email from '../assets/logos/email.svg';
+import avatar from '../assets/images/avatar.jpg';
 
 export default {
   name: 'Home',
   mounted() {
     document.title = 'Candra Kurniawan';
+  },
+  data() {
+    return {
+      linkedin,
+      github,
+      discord,
+      whatsapp,
+      email,
+      avatar,
+    };
   },
 };
 </script>
@@ -24,11 +48,16 @@ export default {
   width: 100vw;
   height: 60vh;
   background: url("../assets/images/cover.jpg");
-  background-position: left;
+  background-position: right;
   background-size: cover;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+  /* &::after{
+    background-color: red;
+  } */
 
   .tittle {
     position: absolute;
@@ -36,25 +65,46 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 
-    .name{
+    .name {
       font-size: 30px;
       color: white;
+      font-family: 'righteous';
     }
 
-    .position{
+    .position {
       color: white;
       font-size: 15px;
+      font-family: 'monda';
     }
   }
 
-  .imgProfile {
+  .socialBanner {
+    padding-top: 70px;
+    justify-content: space-around;
+    display: flex;
+    width: 220px;
+
+    .socialIcon {
+      width: 36px;
+    }
+  }
+
+  .imgProfileWrapper {
     border-radius: 50%;
     width: 230px;
     height: 230px;
-    background-color: $primary;
-    margin-bottom: -115px;
+    background-color: white;
+    margin-bottom: -190px;
     border: 10px solid #ffff;
+
+    .imgProfile{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -63,14 +113,14 @@ export default {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: $sm) {
-  .cover{
-    .tittle{
-      .name{
+  .cover {
+    .tittle {
+      .name {
         color: red;
       }
     }
   }
- }
+}
 
 // Medium devices (tablets, 768px and up)
 /* @media (min-width: 768px) {  } */
