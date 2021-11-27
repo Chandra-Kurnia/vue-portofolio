@@ -15,6 +15,7 @@
       <img class="imgProfile" :src="avatar" alt="" />
     </div>
   </div>
+  <About/>
 </template>
 
 <script>
@@ -24,6 +25,7 @@ import discord from '../assets/logos/discord.svg';
 import whatsapp from '../assets/logos/whatsapp.svg';
 import email from '../assets/logos/email.svg';
 import avatar from '../assets/images/avatar.jpg';
+import About from '../components/About.vue';
 
 export default {
   name: 'Home',
@@ -40,10 +42,13 @@ export default {
       avatar,
     };
   },
+  components: {
+    About,
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .cover {
   width: 100vw;
   height: 60vh;
@@ -70,13 +75,13 @@ export default {
     .name {
       font-size: 30px;
       color: white;
-      font-family: 'righteous';
+      font-family: "righteous";
     }
 
     .position {
       color: white;
       font-size: 15px;
-      font-family: 'monda';
+      font-family: "monda";
     }
   }
 
@@ -84,10 +89,10 @@ export default {
     padding-top: 70px;
     justify-content: space-around;
     display: flex;
-    width: 220px;
+    width: 200px;
 
     .socialIcon {
-      width: 36px;
+      width: 34px;
     }
   }
 
@@ -99,7 +104,7 @@ export default {
     margin-bottom: -190px;
     border: 10px solid #ffff;
 
-    .imgProfile{
+    .imgProfile {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -107,30 +112,4 @@ export default {
     }
   }
 }
-
-// X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: $sm) {
-  .cover {
-    .tittle {
-      .name {
-        color: red;
-      }
-    }
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-/* @media (min-width: 768px) {  } */
-
-// Large devices (desktops, 992px and up)
-/* @media (min-width: 992px) {  } */
-
-// X-Large devices (large desktops, 1200px and up)
-/* @media (min-width: 1200px) {  } */
-
-// XX-Large devices (larger desktops, 1400px and up)
-/* @media (min-width: 1400px) {  } */
 </style>
